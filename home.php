@@ -56,18 +56,19 @@ mysqli_close($con);
                             <ul class="nav navbar-nav">
                                 <li class="nav-item" role="presentation"><a class="nav-link" href="home.php" style="color:#d5b0ac;">Home</a></li>
                                 <li class="nav-item" role="presentation"><a class="nav-link" href="account.php" style="color:#d5b0ac;">Account</a></li>
-                                <li class="nav-item" role="presentation"><a class="nav-link" href="savedrecipes.php" style="color:#d5b0ac;">Saved Recipes</a></li>
-                            </ul>
+                                <li class="nav-item" role="presentation"><a class="nav-link" href="logout.php" style="color:#d5b0ac;">Logout</a></li>                            </ul>
                         </div>
                     </div>
                 </nav>
             </div>
         </div>
         <div class="row d-flex">
-            <div class="col" style="width:300px;"><img src="assets/img/ubelogo-removebg-preview.png" style="width:300px;height:300px;"></div>
-            <div class="col text-center">
-                <h1>Heading</h1>
-                <p>Lorem iasdad afjajgaj gjasf afj</p>
+            <div class="col d-flex justify-content-center" style="width:300px;">
+                <img src="assets/img/ubelogo-removebg-preview.png" style="width:375px;height:320px;">
+            </div>
+            <div class="col text-start">
+                <h1>What is Ube</h1>
+                <h3>Ube is a purple yam that originated in the Philippines. Ube has a brown, bark-like exterior and vibrant purple flesh. Ube has a sweet, nutty flavor and aroma and is commonly used in desserts.</h3>
             </div>
         </div>
         <hr>
@@ -88,9 +89,9 @@ mysqli_close($con);
                         <div class="card-body" style="background-color:#d5b0ac;color:#000000;">
                             <h4 class="card-title"><?php echo $row["name"]?></h4>
                             <p class="card-text"><?php echo $row["desciption"]?></p>
-                            <a class="btn btn-primary" role="button" href="#">View</a>
+                            <a class="btn btn-primary" role="button" href="<?=$row['path']?>">View</a>
                             <form action="" method="POST" id="recipeForm">
-                                <div class="form-group d-flex justify-content-end" style="padding:25px;"><button class="btn btn-primary" type="submit" name="submit" value="<?=$row['recipe_id']?>" form="recipeForm">Add this to your saved recipes!&nbsp; &nbsp;<i class="fa fa-arrow-right"></i></button></div>
+                                <div class="form-group d-flex justify-content-end" style="padding:25px;"><button class="btn btn-primary" type="submit" name="submit" value="<?=$row['recipe_id']?>" form="recipeForm">Save this recipe!&nbsp; &nbsp;<i class="fa fa-arrow-right"></i></button></div>
                             </form>
                         </div>
                     </div>
@@ -104,7 +105,7 @@ mysqli_close($con);
                 <div class="card" style="margin:50px;">
                     <div class="card-body" style="background-color:#d5b0ac;color:rgb(0,0,0);">
                         <h2 class="card-title">Credits</h2>
-                        <h3 class="card-subtitle mb-2">Programmer and Designer</h3>
+                        <h3 class="card-subtitle mb-2">Programmer and Designer (Logo)</h3>
                         <p class="card-text">John Philip Magsaysay - IT-1A and Johnyela Mayo<br></p>
                     </div>
                 </div>

@@ -1,5 +1,8 @@
 <?php 
 
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
 include "connect.php";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST"){
@@ -7,7 +10,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
     $email = $_POST["email"];
     $password = $_POST["password"];
 
-    $sql = "INSERT INTO users (username, email, password) VALUES ('$username', '$email', '$password')";
+    $sql = "INSERT INTO users (username, email, password, user_level) VALUES ('$username', '$email', '$password', 'User')";
 
     if (mysqli_query($con, $sql)) {
         echo "<script language='javascript' type='text/javascript'> alert('Registered Successfully'); </script>";
@@ -41,7 +44,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
                             <ul class="nav navbar-nav">
                                 <li class="nav-item" role="presentation"><a class="nav-link" href="home.php" style="color:#d5b0ac;">Home</a></li>
                                 <li class="nav-item" role="presentation"><a class="nav-link" href="account.php" style="color:#d5b0ac;">Account</a></li>
-                                <li class="nav-item" role="presentation"><a class="nav-link" href="savedrecipes.php" style="color:#d5b0ac;">Saved Recipes</a></li>
+                                <!-- <li class="nav-item" role="presentation"><a class="nav-link" href="savedrecipes.php" style="color:#d5b0ac;">Saved Recipes</a></li> -->
                             </ul>
                         </div>
                     </div>
@@ -71,7 +74,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
                 <div class="card" style="margin:50px;">
                     <div class="card-body" style="background-color:#d5b0ac;color:rgb(0,0,0);">
                         <h2 class="card-title">Credits</h2>
-                        <h3 class="card-subtitle mb-2">Programmer and Designer</h3>
+                        <h3 class="card-subtitle mb-2">Programmer and Designer (Logo)</h3>
                         <p class="card-text">John Philip Magsaysay - IT-1A and Johnyela Mayo<br></p>
                     </div>
                 </div>

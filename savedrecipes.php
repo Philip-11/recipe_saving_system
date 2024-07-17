@@ -23,6 +23,7 @@ $query = mysqli_query($con, $sql);
     <title>ubeproject</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
     <link rel="stylesheet" href="assets/css/Login-Form-Clean.css">
     <link rel="stylesheet" href="assets/css/styles.css">
 </head>
@@ -71,7 +72,11 @@ $query = mysqli_query($con, $sql);
                         <img class="card-img-top w-100 d-block" src="<?=$rows[3]?>">
                         <div class="card-body" style="background-color:#d5b0ac;color:rgb(4,0,0);">
                             <h4 class="card-title"><?=$rows[1]?></h4>
-                            <p class="card-text"><?=$rows[2]?></p><button class="btn btn-primary" type="button">Button</button>
+                            <p class="card-text"><?=$rows[2]?></p>
+                            <button class="btn btn-primary" type="button">View</button>
+                            <button class="btn btn-danger" type="button" style="margin: 15px;">
+                                <i class="icon ion-android-delete"></i>
+                            </button>
                         </div>
                     </div>
                     <?php }?>
@@ -79,7 +84,7 @@ $query = mysqli_query($con, $sql);
             </div>
         </div>
         <div class="row">
-            <div class="col d-flex justify-content-end" style="padding:25px;"><button class="btn btn-primary" type="button">View All&nbsp; &nbsp;<i class="fa fa-arrow-right"></i></button></div>
+            <div class="col d-flex justify-content-end" style="padding:25px;"><a class="btn btn-primary" href="savedrecipes.php">View All&nbsp; &nbsp;<i class="fa fa-arrow-right"></i></a></div>
         </div>
         <div class="row">
             <div class="col">

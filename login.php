@@ -16,8 +16,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
             $_SESSION["loggedin"] = true;
             $_SESSION["user_id"] = $user["id"];
             $_SESSION["user"] = $user["username"];
-            header("Location: home.php");
-            exit();
+            
+            if ($user['user_level'] == 'Admin'){
+                $_SESSION['admin'] = true;
+                header("Location: admin.php");
+            } 
+
+            if ($user['user_level'] == 'User'){
+                header("Location: home.php");
+            }
+            
         } else {
             echo "<script language='javascript' type='text/javascript'> alert('Wrong Password'); </script>";
         }
@@ -51,7 +59,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
                             <ul class="nav navbar-nav">
                                 <li class="nav-item" role="presentation"><a class="nav-link" href="home.php" style="color:#d5b0ac;">Home</a></li>
                                 <li class="nav-item" role="presentation"><a class="nav-link" href="account.php" style="color:#d5b0ac;">Account</a></li>
-                                <li class="nav-item" role="presentation"><a class="nav-link" href="savedrecipes.php" style="color:#d5b0ac;">Saved Recipes</a></li>
+                                <!-- <li class="nav-item" role="presentation"><a class="nav-link" href="savedrecipes.php" style="color:#d5b0ac;">Saved Recipes</a></li> -->
                             </ul>
                         </div>
                     </div>
@@ -70,13 +78,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
             <input class="form-control d-flex justify-content-between align-items-center" type="password" required="" placeholder="Password" name="password" id="password" minlength="6" autocomplete="off" style="width:328px;margin:10px;">
             </div>
             <div class="form-group d-flex justify-content-center align-items-center"><button class="btn btn-primary" type="submit" style="width:122px;">Submit</button></div>
+
         </form>
+        <div class="row">
+            <div class="col d-flex justify-content-center">
+                <a href="register.php" style="color: #d5b0ac;">Don't have an account yet?</a>
+            </div>
+        </div>
         <div class="row">
             <div class="col">
                 <div class="card" style="margin:50px;">
                     <div class="card-body" style="background-color:#d5b0ac;color:rgb(0,0,0);">
                         <h2 class="card-title">Credits</h2>
-                        <h3 class="card-subtitle mb-2">Programmer and Designer</h3>
+                        <h3 class="card-subtitle mb-2">Programmer and Designer (Logo)</h3>
                         <p class="card-text">John Philip Magsaysay - IT-1A and Johnyela Mayo<br></p>
                     </div>
                 </div>
